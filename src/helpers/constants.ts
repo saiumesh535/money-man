@@ -5,3 +5,8 @@ export const CATEGORIES : string [] = [
     "Chit",
     "Lent"
 ]
+
+export const SOURCES : string[] = [
+    "Account",
+    "Credit Card"
+]

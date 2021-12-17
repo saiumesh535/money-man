@@ -2,12 +2,11 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import TextField from '@mui/material/TextField';
 import { useParams } from 'react-router';
 import { useState } from 'react';
-import { CATEGORIES } from '../../helpers/constants';
+import { CATEGORIES, SOURCES } from '../../helpers/constants';
 import { SelectComponent } from '../../components/Select/SelectComponent';
 import { Source } from '../../types/commonTypes';
 import { DatePicker } from '../../components/Date/DatePicker';
 import './Record.scss';
-import el from 'date-fns/esm/locale/el/index.js';
 
 interface FormData {
     name: string;
@@ -50,9 +49,9 @@ const RecordExpense: React.FC = () => {
                     <TextField fullWidth id="outlined-basic" label="Name" onChange={(e) => handleDateChange('name', e)} variant="outlined" value={formData?.name}/>
                     <TextField fullWidth id="outlined-basic" label="Amount" onChange={(e) => handleDateChange('amount', e)} variant="outlined" value={formData?.amount} />
                     <SelectComponent list={CATEGORIES} label="Category" />
-                    <DatePicker />
-                    <TextField fullWidth id="outlined-basic" label="Source" onChange={(e) => handleDateChange('source', e)} variant="outlined" value={formData?.source} />
-                </div>
+                    <DatePicker label="Spent"/>
+                    <SelectComponent list={SOURCES} label="Source"/>
+                    </div>
             </IonContent>
         </IonPage>
     );
