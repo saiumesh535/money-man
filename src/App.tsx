@@ -26,7 +26,6 @@ import CreateCategory from './pages/Category/CreateCategory';
 
 const App: React.FC = () => {
   return (
-    // <IonApp>
     <Router>
       <IonApp>
         <IonSplitPane contentId="main">
@@ -39,7 +38,6 @@ const App: React.FC = () => {
             <Route path="/page/RecordExpense" component={RecordExpense} />
           </IonRouterOutlet>
         </IonSplitPane>
-
       </IonApp>
     </Router>
   );

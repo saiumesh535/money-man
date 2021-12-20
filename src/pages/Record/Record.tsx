@@ -7,6 +7,7 @@ import { SelectComponent } from '../../components/Select/SelectComponent';
 import { Source } from '../../types/commonTypes';
 import { DatePicker } from '../../components/Date/DatePicker';
 import './Record.scss';
+import HeaderComponent from '../Header/HeaderComponent';
 
 interface FormData {
     name: string;
@@ -25,7 +26,6 @@ const initialFormData: FormData = {
 }
 
 const RecordExpense: React.FC = () => {
-    const { name } = useParams<{ name: string; }>();
     const [formData, updateFormData] = useState<FormData>(initialFormData);
     function handleDateChange(prop: string, e: any) {
         updateFormData({
@@ -35,23 +35,15 @@ const RecordExpense: React.FC = () => {
     }
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonButtons slot="start">
-                        <IonMenuButton />
-                    </IonButtons>
-                    <IonTitle>{name}</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-
+            <HeaderComponent name="Record Expense" />
             <IonContent>
                 <div className="page-content">
-                    <TextField fullWidth id="outlined-basic" label="Name" onChange={(e) => handleDateChange('name', e)} variant="outlined" value={formData?.name}/>
+                    <TextField fullWidth id="outlined-basic" label="Name" onChange={(e) => handleDateChange('name', e)} variant="outlined" value={formData?.name} />
                     <TextField fullWidth id="outlined-basic" label="Amount" onChange={(e) => handleDateChange('amount', e)} variant="outlined" value={formData?.amount} />
                     <SelectComponent list={CATEGORIES} label="Category" />
-                    <DatePicker label="Spent"/>
-                    <SelectComponent list={SOURCES} label="Source"/>
-                    </div>
+                    <DatePicker label="Spent" />
+                    <SelectComponent list={SOURCES} label="Source" />
+                </div>
             </IonContent>
         </IonPage>
     );

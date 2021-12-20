@@ -1,22 +1,13 @@
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent } from '@ionic/react';
+import { IonPage, IonContent } from '@ionic/react';
 import { TextField } from '@mui/material';
 import { useState } from 'react';
-import { useParams } from 'react-router';
+import HeaderComponent from '../Header/HeaderComponent';
 
 function CreateCategory(): JSX.Element {
-    const { name } = useParams<{ name: string; }>();
     const [categoryName, setCategoryName] = useState('');
     return (
         <IonPage>
-        <IonHeader>
-            <IonToolbar>
-                <IonButtons slot="start">
-                    <IonMenuButton />
-                </IonButtons>
-                <IonTitle>{name}</IonTitle>
-            </IonToolbar>
-        </IonHeader>
-
+        <HeaderComponent name= "Create Category"/>
         <IonContent>
         <TextField
             fullWidth id="outlined-basic"
