@@ -1,6 +1,6 @@
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, BrowserRouter as Router } from 'react-router-dom';
 import Menu from './components/Menu';
 
 /* Core CSS required for Ionic components to work properly */
@@ -22,24 +22,24 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import RecordExpense from './pages/Record/Record';
+import CreateCategory from './pages/Category/CreateCategory';
 
 const App: React.FC = () => {
   return (
-    <IonApp>
-      <IonReactRouter>
+    <Router>
+      <IonApp>
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-            <Route path="/" exact={true}>
-              <Redirect to="/page/RecordExpense" />
-            </Route>
-            <Route path="/page/RecordExpense" exact={true}>
-              <RecordExpense />
-            </Route>
+            <Route exact={true} path="/" render={() => {
+              return <Redirect to={"/page/RecordExpense"} />
+            }} />
+            <Route path="/page/Categories" component={CreateCategory} />
+            <Route path="/page/RecordExpense" component={RecordExpense} />
           </IonRouterOutlet>
         </IonSplitPane>
-      </IonReactRouter>
-    </IonApp>
+      </IonApp>
+    </Router>
   );
 };
 
