@@ -37,7 +37,6 @@ const App: React.FC = () => {
             <Route path="/page/RecordExpense" component={RecordExpense} />
           </IonRouterOutlet>
         </IonSplitPane>
-
       </IonApp>
     </Router>
   );

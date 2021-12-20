@@ -1,29 +1,20 @@
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent } from '@ionic/react';
+import { IonPage, IonContent } from '@ionic/react';
 import { IconButton, List, ListItem, ListItemText, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
-import { useParams } from 'react-router';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './CreateCategory.scss';
 import { CATEGORIES } from '../../helpers/constants';
+import HeaderComponent from '../Header/HeaderComponent';
 
 function CreateCategory(): JSX.Element {
-    const { name } = useParams<{ name: string; }>();
     const [categoryName, setCategoryName] = useState('');
     function saveCategory() {
         console.log("button clicked");
     }
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonButtons slot="start">
-                        <IonMenuButton />
-                    </IonButtons>
-                    <IonTitle>{name}</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-
+            <HeaderComponent name= "Create Category"/>
             <IonContent>
                 <div className="page-content">
 

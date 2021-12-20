@@ -12,7 +12,6 @@ interface Props {
 export function DatePicker(props: Props) {
     const [date, setDate] = useState<Date | null>(new Date())
     function handleChange(value: Date | null){
-        console.log(value);
         setDate(value);
     }
     return(
