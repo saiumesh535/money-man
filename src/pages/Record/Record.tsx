@@ -7,6 +7,7 @@ import { SelectComponent } from '../../components/Select/SelectComponent';
 import { Source } from '../../types/commonTypes';
 import { DatePicker } from '../../components/Date/DatePicker';
 import './Record.scss';
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 
 interface FormData {
     name: string;
@@ -33,6 +34,9 @@ const RecordExpense: React.FC = () => {
             [prop]: e.target.value
         })
     }
+    function saveExpense () {
+        console.log("expense saved");
+    }
     return (
         <IonPage>
             <IonHeader>
@@ -51,7 +55,8 @@ const RecordExpense: React.FC = () => {
                     <SelectComponent list={CATEGORIES} label="Category" />
                     <DatePicker label="Spent"/>
                     <SelectComponent list={SOURCES} label="Source"/>
-                    </div>
+                    <ButtonComponent label='Save Expense' handler={saveExpense} />
+                </div>
             </IonContent>
         </IonPage>
     );
