@@ -1,20 +1,31 @@
 import { IonPage, IonContent } from '@ionic/react';
 import { IconButton, List, ListItem, ListItemText, TextField, Typography } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './CreateCategory.scss';
-import { CATEGORIES } from '../../helpers/constants';
 import HeaderComponent from '../Header/HeaderComponent';
+import { useStore, ZustandState } from '../../data/store';
+import { Category } from '../../types/commonTypes';
 
 function CreateCategory(): JSX.Element {
     const [categoryName, setCategoryName] = useState('');
-    function saveCategory() {
-        console.log("button clicked");
+    const categories: Category[] = useStore((state: ZustandState) => state.categories);
+    const getCategories = useStore((state: ZustandState) => state.loadCategories);
+    const addCategory = useStore((state: ZustandState) => state.createCategory);
+
+    useEffect(() => {
+        getCategories();
+    }, [])
+
+    async function saveCategory() {
+        const category: Category = { name: categoryName }
+        addCategory(category)
     }
+
     return (
         <IonPage>
-            <HeaderComponent name= "Create Category"/>
+            <HeaderComponent name="Create Category" />
             <IonContent>
                 <div className="page-content">
 
@@ -30,8 +41,8 @@ function CreateCategory(): JSX.Element {
                         Categories
                     </Typography>
                     <List>
-                        {CATEGORIES.map(category => {
-                            return <ListItem className='category-row'
+                        {categories && categories.map(category => {
+                            return <ListItem className='category-row' key={category.name}
                                 secondaryAction={
                                     <IconButton edge="end" aria-label="delete">
                                         <DeleteIcon />
@@ -39,7 +50,7 @@ function CreateCategory(): JSX.Element {
                                 }
                             >
                                 <ListItemText
-                                    primary={category}
+                                    primary={category.name}
                                 />
                             </ListItem>
                         })}
