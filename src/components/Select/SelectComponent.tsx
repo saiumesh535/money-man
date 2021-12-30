@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface Props {
     list: any[];
@@ -13,8 +13,8 @@ interface Props {
 
 export function SelectComponent(props: Props) {
 
-    function handleChange(e: any){
-      props.handleChange(e);
+    function handleChange(value: string){
+      props.handleChange(value);
     }
     return (
         <Box sx={{ minWidth: 120 }}>
@@ -24,7 +24,7 @@ export function SelectComponent(props: Props) {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             label={props.label}
-            onChange={(e) => handleChange(e.target.value)}
+            onChange={(e: SelectChangeEvent<string>) => handleChange(e.target.value)}
           >
             {props.list.map(item => <MenuItem key={item} value={item}>{item}</MenuItem>)}
           </Select>
