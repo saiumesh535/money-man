@@ -22,10 +22,14 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import RecordExpense from './pages/Record/Record';
 import CreateCategory from './pages/Category/CreateCategory';
+import HeaderComponent from './pages/Header/HeaderComponent';
+
+import './app.scss';
 
 const App: React.FC = () => {
   return (
     <Router>
+      <HeaderComponent />
       <IonApp>
         <IonSplitPane contentId="main">
           <Menu />
@@ -35,6 +39,9 @@ const App: React.FC = () => {
             }} />
             <Route path="/page/Categories" component={CreateCategory} />
             <Route path="/page/RecordExpense" component={RecordExpense} />
+            <Route path="/page/Expenses" render={() => (
+              <div style={{ margin: 60 }}>Fix this @Madhuri</div>
+            )} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonApp>

@@ -1,17 +1,15 @@
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle } from '@ionic/react';
+import { useLocation } from 'react-router';
 
-interface Props {
-    name : String;
-}
-
-function HeaderComponent(props: Props): JSX.Element {
+function HeaderComponent(): JSX.Element {
+    const location = useLocation();
     return (
         <IonHeader>
             <IonToolbar>
                 <IonButtons slot="start">
                     <IonMenuButton />
                 </IonButtons>
-                <IonTitle>{props.name}</IonTitle>
+                <IonTitle>{location.pathname.split("/").pop()}</IonTitle>
             </IonToolbar>
         </IonHeader>
     )
