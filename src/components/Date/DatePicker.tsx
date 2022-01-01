@@ -4,6 +4,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import { useState } from 'react';
+import './DatePicker.scss';
 
 interface Props {
   label: string;
@@ -16,7 +17,7 @@ export function DatePicker(props: Props) {
     }
     return(
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <Stack spacing={3}>
+        <Stack spacing={3} className='textField'>
           <MobileDatePicker
             label={props.label}
             inputFormat="MM/dd/yyyy"

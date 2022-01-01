@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,7 +17,7 @@ export function SelectComponent(props: Props) {
       props.handleChange(value);
     }
     return (
-        <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ minWidth: 120 }} className='textField'>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">{props.label}</InputLabel>
           <Select

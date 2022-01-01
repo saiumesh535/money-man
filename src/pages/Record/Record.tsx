@@ -48,9 +48,9 @@ const RecordExpense: React.FC = () => {
         <IonPage>
             <IonContent>
                 <div className="page-content">
-                    <TextField fullWidth id="outlined-basic" label="Name" onChange={(e) => handleChangeForm('name', e.target.value)} variant="outlined" value={formData?.name} />
-                    <TextField fullWidth id="outlined-basic" label="Amount" onChange={(e) => handleChangeForm('amount', +e.target.value)} variant="outlined" value={formData?.amount} />
-                    <SelectComponent list={categoryList} label="Category" value={formData.category} handleChange={(value) => handleChangeForm('category', value)} />
+                    <TextField className='textField' fullWidth id="outlined-basic" label="Name" onChange={(e) => handleChangeForm('name', e.target.value)} variant="outlined" value={formData?.name} />
+                    <TextField className='textField' fullWidth id="outlined-basic" label="Amount" onChange={(e) => handleChangeForm('amount', +e.target.value)} variant="outlined" value={formData?.amount} />
+                    <SelectComponent  list={categoryList} label="Category" value={formData.category} handleChange={(value) => handleChangeForm('category', value)} />
                     <DatePicker label="Spent on" />
                     <SelectComponent list={SOURCES} label="Source" value={formData.source} handleChange={(value) => handleChangeForm('source', value)} />
                     <ButtonComponent label='Save Expense' handler={saveExpense} />

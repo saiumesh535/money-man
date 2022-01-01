@@ -29,15 +29,15 @@ function CreateCategory(): JSX.Element {
         <IonPage>
             <IonContent>
                 <div className="page-content">
-
                     <TextField
                         fullWidth id="outlined-basic"
                         label="Category name"
                         variant="outlined"
                         value={categoryName}
+                        className='textField'
                         onChange={(e) => setCategoryName(e.target.value)}
                     />
-                    <ButtonComponent handler={saveCategory} label="Create Category" />
+                    <ButtonComponent handler={saveCategory} label="Create" />
                     <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
                         Categories
                     </Typography>
