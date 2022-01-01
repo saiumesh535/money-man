@@ -7,6 +7,7 @@ import './CreateCategory.scss';
 import HeaderComponent from '../Header/HeaderComponent';
 import { useStore, ZustandState } from '../../data/store';
 import { Category } from '../../types/commonTypes';
+import SnackBarComponent from '../../components/SnackBar/SnackBarComponent';
 
 function CreateCategory(): JSX.Element {
     const [categoryName, setCategoryName] = useState('');
@@ -56,6 +57,7 @@ function CreateCategory(): JSX.Element {
                             </ListItem>
                         })}
                     </List>
+                    <SnackBarComponent/>
                 </div>
             </IonContent>
         </IonPage>

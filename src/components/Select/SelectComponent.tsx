@@ -8,6 +8,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 interface Props {
     list: any[];
     label: string;
+    value: string;
     handleChange: (value: string) => void;
 }
 
@@ -24,6 +25,7 @@ export function SelectComponent(props: Props) {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             label={props.label}
+            value={props.value}
             onChange={(e: SelectChangeEvent<string>) => handleChange(e.target.value)}
           >
             {props.list.map(item => <MenuItem key={item} value={item}>{item}</MenuItem>)}
