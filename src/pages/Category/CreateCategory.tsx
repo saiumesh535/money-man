@@ -13,6 +13,7 @@ function CreateCategory(): JSX.Element {
     const categories: Category[] = useStore((state: ZustandState) => state.categories);
     const getCategories = useStore((state: ZustandState) => state.loadCategories);
     const addCategory = useStore((state: ZustandState) => state.createCategory);
+    const deleteCategory = useStore((state: ZustandState) => state.deleteCategory);
 
     useEffect(() => {
         getCategories();
@@ -44,7 +45,7 @@ function CreateCategory(): JSX.Element {
                         {categories && categories.map(category => {
                             return <ListItem className='category-row' key={category.name}
                                 secondaryAction={
-                                    <IconButton edge="end" aria-label="delete">
+                                    <IconButton edge="end" aria-label="delete" onClick={(e) => deleteCategory(category)}>
                                         <DeleteIcon />
                                     </IconButton>
                                 }

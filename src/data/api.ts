@@ -9,3 +9,8 @@ export async function postAPI<T>(url: string, body: T): Promise<AxiosResponse> {
     const response = await axios.post(url, body);
     return response;
 }
+
+export async function deleteAPI(url: string): Promise<AxiosResponse> {
+    const response = await axios.delete(url);
+    return response;
+}
