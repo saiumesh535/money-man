@@ -46,7 +46,6 @@ const RecordExpense: React.FC = () => {
     }
     return (
         <IonPage>
-            <HeaderComponent name="Record Expense" />
             <IonContent>
                 <div className="page-content">
                     <TextField fullWidth id="outlined-basic" label="Name" onChange={(e) => handleChangeForm('name', e.target.value)} variant="outlined" value={formData?.name} />

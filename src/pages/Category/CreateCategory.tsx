@@ -27,7 +27,6 @@ function CreateCategory(): JSX.Element {
 
     return (
         <IonPage>
-            <HeaderComponent name="Create Category" />
             <IonContent>
                 <div className="page-content">
 
@@ -43,10 +42,10 @@ function CreateCategory(): JSX.Element {
                         Categories
                     </Typography>
                     <List>
-                        {categories && categories.map(category => {
+                        {categories?.map(category => {
                             return <ListItem className='category-row' key={category.name}
                                 secondaryAction={
-                                    <IconButton edge="end" aria-label="delete" onClick={(e) => deleteCategory(category)}>
+                                    <IconButton edge="end" aria-label="delete" onClick={() => deleteCategory(category)}>
                                         <DeleteIcon />
                                     </IconButton>
                                 }
