@@ -12,7 +12,7 @@ import {
 
 import { useLocation } from 'react-router-dom';
 import { bookmarkOutline, walletSharp, bookSharp, cashSharp} from 'ionicons/icons';
-import './Menu.css';
+import './menu.scss';
 
 interface AppPage {
   url: string;
@@ -50,7 +50,7 @@ const Menu: React.FC = () => {
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
-        <IonList id="inbox-list">
+        <IonList className='sidebar-list' id="inbox-list">
           <IonListHeader>Hi Madhuri</IonListHeader>
           <IonNote>Good Evening</IonNote>
           {appPages.map((appPage, index) => {

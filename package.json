@@ -80,5 +80,8 @@
     "@capacitor/cli": "3.2.4",
     "sass": "1.42.1"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "volta": {
+    "node": "14.0.0"
+  }
 }
