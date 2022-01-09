@@ -10,7 +10,7 @@ import {
   IonNote,
 } from '@ionic/react';
 
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { bookmarkOutline, walletSharp, bookSharp, cashSharp} from 'ionicons/icons';
 import './menu.scss';
 
@@ -46,6 +46,7 @@ const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const Menu: React.FC = () => {
   const location = useLocation();
+  const history = useHistory();
 
   return (
     <IonMenu contentId="main" type="overlay">
@@ -56,7 +57,12 @@ const Menu: React.FC = () => {
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                <IonItem
+                  className={location.pathname === appPage.url ? 'selected' : ''}
+                  onClick={() => history.push(appPage.url)}
+                  routerDirection="none"
+                  lines="none"
+                  detail={false}>
                   <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
                   <IonLabel>{appPage.title}</IonLabel>
                 </IonItem>

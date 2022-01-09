@@ -36,7 +36,7 @@ function CreateCategory(): JSX.Element {
                         className='textField'
                         onChange={(e) => setCategoryName(e.target.value)}
                     />
-                    <ButtonComponent handler={saveCategory} label="Create" />
+                    <ButtonComponent disabled={categoryName?.length <= 3} handler={saveCategory} label="Create" />
                     <Typography sx={{ mt: 4, mb: 2, ml: 3 }} variant="h6" component="div">
                         Categories
                     </Typography>
@@ -55,7 +55,7 @@ function CreateCategory(): JSX.Element {
                             </ListItem>
                         })}
                     </List>
-                    <SnackBarComponent/>
+                    <SnackBarComponent />
                 </div>
             </IonContent>
         </IonPage>

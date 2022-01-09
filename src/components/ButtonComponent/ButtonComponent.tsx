@@ -3,13 +3,19 @@ import './ButtonComponent.scss';
 
 interface Props {
     label: string,
+    disabled?: boolean,
     handler: () => void;
 }
 
-function ButtonComponent(props : Props) : JSX.Element {
-    return(
+function ButtonComponent(props: Props): JSX.Element {
+    return (
         <div className="button-container">
-            <Button className="button-small" onClick={props.handler} variant="contained">{props.label}</Button>
+            <Button
+                disabled={props.disabled || false}
+                className="button-small"
+                variant="contained"
+                onClick={props.handler}
+            >{props.label}</Button>
         </div>
     );
 }
