@@ -20,3 +20,7 @@ export async function createExpenseAPI(expense: Expense): Promise<AxiosResponse>
 export async function deleteCategoryAPI(category: Category): Promise<AxiosResponse> {
     return await deleteAPI(`${categoriesURL}/${category.name}`);
 }
+
+export async function getExpensesAPI(): Promise<Expense[]> {
+    return await getAPI<Expense[]>(expenseURL)
+}

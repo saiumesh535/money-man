@@ -28,7 +28,7 @@ function SnackBarComponent(): JSX.Element {
     const snackBarState: SnackbarProps = useStore((state: ZustandState) => state.snackbarState);
     const setSnackBarState = useStore((state: ZustandState) => state.setSnackbarState);
     return (
-        <Snackbar className='alert' onClose={() => setSnackBarState({open: false})} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}} open={snackBarState.open}>
+        <Snackbar className='alert' onClose={() => setSnackBarState({open: false})} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}} open={snackBarState.open} autoHideDuration={4000}>
             <Alert className='alert' severity={snackBarState.type} sx={{ width: '100%', height: '40px' }}>
                 {snackBarState.message}
             </Alert>

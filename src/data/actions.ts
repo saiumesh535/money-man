@@ -7,3 +7,5 @@ export const CREATE_EXPENSE = 'CREATE_EXPENSE';
 export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 
 export const OPEN_SNACKBAR = 'OPEN_SNACKBAR';
+
+export const GET_EXPENSES = 'GET_EXPENSES';

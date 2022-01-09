@@ -9,7 +9,7 @@ interface Props {
 function ButtonComponent(props : Props) : JSX.Element {
     return(
         <div className="button-container">
-            <Button onClick={props.handler} variant="contained">{props.label}</Button>
+            <Button className="button-small" onClick={props.handler} variant="contained">{props.label}</Button>
         </div>
     );
 }

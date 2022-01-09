@@ -7,9 +7,10 @@ import { Expense } from '../../types/commonTypes';
 import { DatePicker } from '../../components/Date/DatePicker';
 import './Record.scss';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
-import HeaderComponent from '../Header/HeaderComponent';
 import { useStore, ZustandState } from '../../data/store';
 import { getCategoryList } from '../../data/utils';
+import SnackBarComponent from '../../components/SnackBar/SnackBarComponent';
+import { setTimeout } from 'timers';
 
 const initialFormData: Expense = {
     name: '',
@@ -43,11 +44,12 @@ const RecordExpense: React.FC = () => {
     }
     function saveExpense() {
         createExpense(formData);
+        setTimeout(() => updateFormData(initialFormData), 1000);
     }
     return (
         <IonPage>
             <IonContent>
-                <div className="page-content">
+                <div className="add-expense page-content">
                     <TextField className='textField' fullWidth id="outlined-basic" label="Name" onChange={(e) => handleChangeForm('name', e.target.value)} variant="outlined" value={formData?.name} />
                     <TextField className='textField' fullWidth id="outlined-basic" label="Amount" onChange={(e) => handleChangeForm('amount', +e.target.value)} variant="outlined" value={formData?.amount} />
                     <SelectComponent  list={categoryList} label="Category" value={formData.category} handleChange={(value) => handleChangeForm('category', value)} />
@@ -55,6 +57,7 @@ const RecordExpense: React.FC = () => {
                     <SelectComponent list={SOURCES} label="Source" value={formData.source} handleChange={(value) => handleChangeForm('source', value)} />
                     <ButtonComponent label='Save Expense' handler={saveExpense} />
                 </div>
+                <SnackBarComponent />
             </IonContent>
         </IonPage>
     );

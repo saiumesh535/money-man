@@ -6,11 +6,11 @@ function HeaderComponent(): JSX.Element {
     const location = useLocation();
     return (
         <IonHeader>
-            <IonToolbar>
+            <IonToolbar className='header-container'>
                 <IonButtons slot="start">
-                    <IonMenuButton />
+                    <IonMenuButton className='menu-button'/>
                 </IonButtons>
-                <IonTitle>{pageMap.get(location.pathname)}</IonTitle>
+                <IonTitle className='title'>{pageMap.get(location.pathname)}</IonTitle>
             </IonToolbar>
         </IonHeader>
     )

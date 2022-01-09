@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './CreateCategory.scss';
-import HeaderComponent from '../Header/HeaderComponent';
 import { useStore, ZustandState } from '../../data/store';
 import { Category } from '../../types/commonTypes';
 import SnackBarComponent from '../../components/SnackBar/SnackBarComponent';
@@ -28,9 +27,9 @@ function CreateCategory(): JSX.Element {
     return (
         <IonPage>
             <IonContent>
-                <div className="page-content">
+                <div className="category page-content">
                     <TextField
-                        fullWidth id="outlined-basic"
+                        id="outlined-basic"
                         label="Category name"
                         variant="outlined"
                         value={categoryName}
@@ -38,7 +37,7 @@ function CreateCategory(): JSX.Element {
                         onChange={(e) => setCategoryName(e.target.value)}
                     />
                     <ButtonComponent handler={saveCategory} label="Create" />
-                    <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                    <Typography sx={{ mt: 4, mb: 2, ml: 3 }} variant="h6" component="div">
                         Categories
                     </Typography>
                     <List>

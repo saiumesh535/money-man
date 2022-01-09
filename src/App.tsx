@@ -25,6 +25,7 @@ import CreateCategory from './pages/Category/CreateCategory';
 import HeaderComponent from './pages/Header/HeaderComponent';
 
 import './app.scss';
+import ViewExpense from './pages/ViewExpense/ViewExpense';
 
 const App: React.FC = () => {
   return (
@@ -39,9 +40,7 @@ const App: React.FC = () => {
             }} />
             <Route path="/page/Categories" component={CreateCategory} />
             <Route path="/page/RecordExpense" component={RecordExpense} />
-            <Route path="/page/Expenses" render={() => (
-              <div style={{ margin: 60 }}>Fix this @Madhuri</div>
-            )} />
+            <Route path="/page/Expenses" component={ViewExpense} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonApp>
